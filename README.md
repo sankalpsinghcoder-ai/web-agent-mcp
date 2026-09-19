@@ -813,11 +813,9 @@ The project is being developed toward a more capable browser agent with:
 
 ---
 
-# License
+## License
 
-Add your preferred license here.
-
-If you are publishing this as an open-source project, MIT is a simple option for a project like this.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
