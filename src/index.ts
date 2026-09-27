@@ -18,9 +18,9 @@ const server = new McpServer({
   version: "0.2.0",
 });
 
-/* =========================================================
-   BROWSER STATE
-========================================================= */
+
+// --- BROWSER STATE
+
 
 let browser: Browser | null = null;
 let context: BrowserContext | null = null;
@@ -30,9 +30,9 @@ let activePageId: string | null = null;
 
 let profilePath: string | null = null;
 
-/* =========================================================
-   HELPERS
-========================================================= */
+
+// --- HELPERS
+
 
 function makePageId(): string {
   return `page_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
@@ -155,10 +155,8 @@ function getPageById(id: string): Page {
   return page;
 }
 
-/* =========================================================
-   EXISTING TOOL
-   NAVIGATE
-========================================================= */
+
+// --- NAVIGATE
 
 server.registerTool(
   "browser_navigate",
@@ -183,10 +181,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   EXISTING TOOL
-   INSPECT
-========================================================= */
+
+// --- INSPECT
 
 server.registerTool(
   "browser_inspect",
@@ -235,10 +231,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   EXISTING TOOL
-   CLICK
-========================================================= */
+
+// --- CLICK
 
 server.registerTool(
   "browser_click",
@@ -264,10 +258,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   EXISTING TOOL
-   TYPE
-========================================================= */
+
+// --- TYPE
 
 server.registerTool(
   "browser_type",
@@ -291,10 +283,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   EXISTING TOOL
-   SELECT
-========================================================= */
+
+// --- SELECT
 
 server.registerTool(
   "browser_select",
@@ -316,10 +306,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   EXISTING TOOL
-   SCROLL
-========================================================= */
+
+// --- SCROLL
 
 server.registerTool(
   "browser_scroll",
@@ -346,10 +334,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   EXISTING TOOL
-   READ
-========================================================= */
+
+// --- READ
 
 server.registerTool(
   "browser_read",
@@ -366,9 +352,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   1. SCREENSHOT
-========================================================= */
+
+// --- SCREENSHOT
 
 server.registerTool(
   "browser_screenshot",
@@ -399,9 +384,7 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   2. WAIT
-========================================================= */
+// --- WAIT
 
 server.registerTool(
   "browser_wait",
@@ -418,9 +401,7 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   3. KEYBOARD
-========================================================= */
+// --- KEYBOARD
 
 server.registerTool(
   "browser_keyboard",
@@ -444,9 +425,7 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   4. HOVER
-========================================================= */
+// --- HOVER
 
 server.registerTool(
   "browser_hover",
@@ -465,9 +444,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   5. BACK
-========================================================= */
+
+// --- BACK
 
 server.registerTool(
   "browser_back",
@@ -490,9 +468,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   6. FORWARD
-========================================================= */
+
+// --- FORWARD
 
 server.registerTool(
   "browser_forward",
@@ -1071,9 +1048,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   20. WAIT FOR NAVIGATION
-========================================================= */
+
+// --- WAIT FOR NAVIGATION
 
 server.registerTool(
   "browser_wait_for_navigation",
@@ -1105,9 +1081,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   21. PERMISSIONS
-========================================================= */
+
+// --- PERMISSION
 
 server.registerTool(
   "browser_permissions",
@@ -1155,9 +1130,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   22. SESSION
-========================================================= */
+
+// --- SESSION
 
 server.registerTool(
   "browser_session",
@@ -1219,9 +1193,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   23. PROFILE
-========================================================= */
+
+// --- PROFILE
 
 server.registerTool(
   "browser_profile",
@@ -1284,9 +1257,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   24. REMOTE BROWSER
-========================================================= */
+
+// --- REMOTE BROWSER
 
 server.registerTool(
   "browser_remote",
@@ -1354,9 +1326,7 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   25. BROWSER TASK
-========================================================= */
+// --- BROWSER TASK
 
 const taskActionSchema = z.discriminatedUnion("action", [
   z.object({
@@ -1593,9 +1563,8 @@ server.registerTool(
   }
 );
 
-/* =========================================================
-   HTTP SERVER
-========================================================= */
+
+// --- HTTP SERVER
 
 const httpServer = createServer(async (req, res) => {
   try {
